@@ -6,7 +6,7 @@ usr_name={'b1xxxxxxx':'xyz'} # usrname:password this only a sample user name and
 conn = httplib2.Http()
 conn.follow_redirects=False
 headers={"Accept-Encoding": "gzip, deflate",'Content-type': 'application/x-www-form-urlencoded'}
-resp, content = conn.request("http://172.16.24.1:1000/logout?05070805041ac6d7") # replace the ip address with that of your firewall
+resp, content = conn.request("http://xxx.xx.x.x:1000/logout?05070805041ac6d7") # replace xxx.xx.x.x with the ip address of your firewall
 print "logout_sucessfull"
 for i in usr_name:
   resp, content = conn.request("http://www.stackoverflow.com")
@@ -17,7 +17,7 @@ for i in usr_name:
   resp, content = conn.request(st)
   print "Using ",i;
   body={"4Tredir":"http://y.co","magic":magic,"username":i,"password":usr_name[i]}
-  resp,content = conn.request("http://172.16.24.1:1000", method="POST", headers=headers, body=urllib.urlencode(body) )
+  resp,content = conn.request("http://xxx.xx.xx.x:1000", method="POST", headers=headers, body=urllib.urlencode(body) ) # replace xxx.xx.x.x with the ip address of your firewall
   soup = BeautifulSoup(content, 'html.parser')
   if(soup.title.string==u'\n      Firewall Authentication Keepalive Window\n    ') :  
               print "Authenticated with ", i
